@@ -10,7 +10,16 @@ namespace OdeToFood.Controllers
     {
         public ActionResult Search(string name = "*")
         {
+            if (name == "*")
+            {
+                return Json(new { cuisineName = name }, JsonRequestBehavior.AllowGet);
+                //return File(Server.MapPath("~/Content/Site.css"), "text/css");
+                //return RedirectToRoute("Cuisine", new { name = "german" });
+                //return RedirectToAction("Search", "Cuisine", new { name = "french" });
+            }
+
             name = Server.HtmlEncode(name);
+            //return RedirectToAction("Index", "Home");
             return Content(name);
         }
     }
