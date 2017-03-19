@@ -9,8 +9,13 @@ namespace OdeToFood.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ViewResult Index()
         {
+            //ViewBag.Message = "Welcome to ASP.NET";
+            ViewBag.Message = string.Format("{0}::{1} {2}",
+                RouteData.Values["controller"],
+                RouteData.Values["action"],
+                RouteData.Values["id"]);
             var model = new RestaurantReview()
             {
                 Name = "Tersiguel's",
